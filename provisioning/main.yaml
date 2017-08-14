@@ -1,0 +1,11 @@
+---
+- hosts: DockerBox
+  remote_user: vagrant
+  become: yes
+  pre_tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+        cache_valid_time: 3600
+  tasks:
+    - include: docker.yaml
