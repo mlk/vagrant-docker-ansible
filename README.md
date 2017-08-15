@@ -30,5 +30,6 @@ Potential improvements:
 
 Notes:
  * The testing of the static content hosting is over-engineered.
+ * I'm using Ubuntu due to awful internet at home and I already have a Vagrant box locally for Ubuntu.
 
 This was done as tech test.
