@@ -30,6 +30,13 @@ vagrant up
 This will spin up the application and will be available under: [http://192.168.33.10:8080](http://192.168.33.10:8080)
 
 
+To shut the application down use:
+
+```
+vagrant halt
+```
+
+
 Tests
 -----
 
@@ -53,9 +60,10 @@ Potential improvements:
  * The testing framework creates and tears down the environment with each test. This is quite expensive.
  * Redeploying the application needs to redeploy the environment.
  * No hardening of the host has been done. For example SSH is enabled.
+ * Move away from the [ubuntu/trusty64](https://app.vagrantup.com/ubuntu/boxes/trusty64) as it only exists for Virtual Box.
 
 Notes:
  * The testing of the static content hosting is over-engineered.
- * I'm using Ubuntu due to awful internet at home and I already have a Vagrant box locally for Ubuntu.
+ * I'm using Ubuntu due to an awful internet at home and I already have a Vagrant box locally for Ubuntu.
 
 This was done as tech test.
