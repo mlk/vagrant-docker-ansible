@@ -4,6 +4,32 @@ Static Site
 This is an example of static website running in a [docker](https://www.docker.com/) container on [vagrant](https://www.vagrantup.com/) managed by
 [ansible](https://www.ansible.com/). It contains a small test suite using [bats](https://github.com/sstephenson/bats), a unit testing framework for Bash.
 
+Running locally
+---------------
+
+To run this application you will require:
+
+ * Virtual Box
+ * Ansible
+ * Vagrant
+
+ On MacOS this can be done via the following commands:
+
+ ```
+ brew install ansible
+ brew cask install virtualbox
+ brew cask install vagrant
+ ```
+
+With the three required components installed the application can be started by executing the following command:
+
+```
+vagrant up
+```
+
+This will spin up the application and will be available under: [http://192.168.33.10:8080](http://192.168.33.10:8080)
+
+
 Tests
 -----
 
@@ -23,8 +49,8 @@ bats *.bat
 
 Potential improvements:
 
- * The testing framework creates and tears down the environment with each test. This is quite expensive.
  * Currently the application and the infrastructure are in a single repo/build system. This should be separated.
+ * The testing framework creates and tears down the environment with each test. This is quite expensive.
  * Redeploying the application needs to redeploy the environment.
  * No hardening of the host has been done. For example SSH is enabled.
 
