@@ -9,3 +9,4 @@
         cache_valid_time: 3600
   tasks:
     - include: docker.yaml
+    - include: www.yaml

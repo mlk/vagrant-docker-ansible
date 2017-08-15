@@ -1,0 +1,12 @@
+---
+- name: Build the web service image
+  docker_image:
+    path: /vagrant/provisioning/www
+    name: static-content
+    tag: v1
+- name: Start the static web service
+  docker_container:
+    name: static-content
+    image: static-content:v1
+    ports:
+      - "8080:80"
