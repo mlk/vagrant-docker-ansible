@@ -54,7 +54,8 @@ On the command line run:
 bats *.bat
 ```
 
-Potential improvements:
+Potential improvements
+---------------------
 
  * Currently the application and the infrastructure are in a single repo/build system. This should be separated.
  * The testing framework creates and tears down the environment with each test. This is quite expensive.
@@ -62,7 +63,9 @@ Potential improvements:
  * No hardening of the host has been done. For example SSH is enabled.
  * Move away from the [ubuntu/trusty64](https://app.vagrantup.com/ubuntu/boxes/trusty64) as it only exists for Virtual Box.
 
-Notes:
+Notes
+-----
+
  * The testing of the static content hosting is over-engineered.
  * I'm using Ubuntu due to an awful internet at home and I already have a Vagrant box locally for Ubuntu.
 
