@@ -13,16 +13,22 @@ To execute the tests you require:
  * bats
  * vagrant
  * Curl
+ * Docker
 
 On the command line run:
 
 ```
-bats tests.bat
+bats *.bat
 ```
 
 Potential improvements:
 
  * The testing framework creates and tears down the environment with each test. This is quite expensive.
  * Currently the application and the infrastructure are in a single repo/build system. This should be separated.
+ * Redeploying the application needs to redeploy the environment.
+ * No hardening of the host has been done. For example SSH is enabled.
+
+Notes:
+ * The testing of the static content hosting is over-engineered.
 
 This was done as tech test.
