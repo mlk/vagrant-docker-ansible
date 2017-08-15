@@ -8,5 +8,6 @@
   docker_container:
     name: static-content
     image: static-content:v1
+    restart_policy: always
     ports:
       - "8080:80"
