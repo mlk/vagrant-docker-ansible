@@ -28,7 +28,7 @@ ansible-galaxy install geerlingguy.repo-epel
 vagrant up
 ```
 
-This will spin up the application and will be available under: [http://192.168.33.10:8080](http://192.168.33.10:8080)
+This will spin up the application and will be available under: [http://192.168.33.10](http://192.168.33.10)
 
 
 To shut the application down use:
