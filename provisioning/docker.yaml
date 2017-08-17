@@ -1,34 +1,50 @@
 ---
-- name: Install docker pre reqs - apt-transport-https
-  apt:
-    name: apt-transport-https
+- name: Remove old instance of docker, if exists.
+  yum:
+    name: docker
+    state: absent
+- name: Remove old instance of docker-common, if exists.
+  yum:
+    name: docker-common
+    state: absent
+- name: Remove old instance of docker-selinux, if exists.
+  yum:
+    name: docker-selinux
+    state: absent
+- name: Remove old instance of docker-engine, if exists.
+  yum:
+    name: docker-engine
+    state: absent
+- name: Install docker pre reqs - yum-utils.
+  yum:
+    name: yum-utils
     state: present
-- name: Install docker pre reqs - ca-certificates
-  apt:
-    name: ca-certificates
+- name: Install docker pre reqs - device-mapper-persistent-data.
+  yum:
+    name: device-mapper-persistent-data
     state: present
-- name: Install docker pre reqs - curl
-  apt:
-    name: curl
+- name: Install docker pre reqs - lvm2.
+  yum:
+    name: lvm2
     state: present
-- name: Install docker pre reqs - software-properties-common
-  apt:
-    name: software-properties-common
-    state: present
-- name: Add Docker-CE repository key key
-  shell: curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
 - name: Add Docker-CE repository
-  shell: add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-- name: Update apt cache now it has Docker
-  apt:
+  shell: yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+- name: Update cache
+  yum:
+    name: "*"
     update_cache: yes
 - name: Install docker
-  apt:
+  yum:
     name: docker-ce
     state: present
-- name: Install docker-py pre reqs virtualenvwrapper
-  apt:
-    name: virtualenvwrapper
+- name: Start docker
+  systemd:
+    name: docker
+    state: started
+    enabled: True
+- name: Install python
+  yum:
+    name: python-pip
     state: present
 - name: Install docker-py
   pip:

@@ -9,7 +9,7 @@ Running locally
 
 To run this application you will require:
 
- * Virtual Box
+ * Virtualisation software (hyperv, virtualbox, vmware_desktop and libvirt should all work)
  * Ansible
  * Vagrant
 
@@ -24,6 +24,7 @@ To run this application you will require:
 With the three required components installed the application can be started by executing the following command:
 
 ```
+ansible-galaxy install geerlingguy.repo-epel
 vagrant up
 ```
 
@@ -61,12 +62,11 @@ Potential improvements
  * The testing framework creates and tears down the environment with each test. This is quite expensive.
  * Redeploying the application needs to redeploy the environment.
  * No hardening of the host has been done. For example SSH is enabled.
- * Move away from the [ubuntu/trusty64](https://app.vagrantup.com/ubuntu/boxes/trusty64) as it only exists for Virtual Box.
 
 Notes
 -----
 
  * The testing of the static content hosting is over-engineered.
- * I'm using Ubuntu due to an awful internet at home and I already have a Vagrant box locally for Ubuntu.
+ * I am using the role `geerlingguy.repo-epel` to enable the EPEL repo, which is required for `python-pip`, which is required for the docker/ansible integration.
 
 This was done as tech test.

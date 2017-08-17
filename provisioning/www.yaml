@@ -10,4 +10,4 @@
     image: static-content:v1
     restart_policy: always
     ports:
-      - "8080:80"
+      - "80:80"

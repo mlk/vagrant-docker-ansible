@@ -13,11 +13,11 @@ teardown() {
   [[ "$output" == *"Hello from Docker"* ]]
 }
 
-@test "Web application running on port 8080" {
-  curl "http://192.168.33.10:8080"
+@test "Web application running on port 80" {
+  curl "http://192.168.33.10:80"
 }
 
 @test "Web application should be running when box is restarted" {
   vagrant down && vagrant up
-  curl "http://192.168.33.10:8080"
+  curl "http://192.168.33.10:80"
 }
